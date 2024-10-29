@@ -1,0 +1,22 @@
+<!-- Your existing template -->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="gallery_section_2">
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-md-4">
+            <div class="gallery_box">
+                <div class="gallery_img"><img src="{{ car.image.url }}" alt="{{ car.name }}"></div>
+                <h3 class="types_text">{{ car.brand.name }} {{ car.car_type.name }}</h3>
+                <p class="looking_text">{{ car.description }}</p>
+                <div class="read_bt"><a href="{% url 'book_now' %}?car_name={{ car.name }}">Book Now</a></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+s
